@@ -148,7 +148,15 @@ public class FetchData {
 
                 Double temp = Double.parseDouble(main.getString("temp"));
 
+            Double temp_min = Double.parseDouble(main.getString("temp_min"));
+
+            Double temp_max = Double.parseDouble(main.getString("temp_max"));
+
                 int temp_int = (int)  (temp - 273.15);
+
+                int temp_min_int= (int) (temp_min - 273.15);
+            int temp_max_int= (int) (temp_max - 273.15);
+
 
             int Humidity = main.getInt("humidity");
 
@@ -156,7 +164,7 @@ public class FetchData {
 
                 Log.v("THE VALUE OF DESCRIPTION STORED==========", descripition);
 
-                 weather = new Weather(descripition, temp_int, Humidity , city , icon);
+                 weather = new Weather(descripition, temp_int, Humidity , city , icon ,temp_min_int ,temp_max_int);
 
 
 

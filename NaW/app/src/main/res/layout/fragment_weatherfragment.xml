@@ -1,22 +1,25 @@
-<android.support.v4.widget.SwipeRefreshLayout
+
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.naw.Weatherfragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/swipe"
-    android:background="@drawable/bc"
-    >
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
 
+
+    android:background="@drawable/bc01"
+
+    >
+<ProgressBar
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:id="@+id/bar"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/row1">
 
         <TextView
             android:layout_width="wrap_content"
@@ -44,56 +47,46 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="152dp"
+        android:layout_below="@id/row1"
+
+        android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginLeft="100dp"
+
+        android:layout_marginLeft="130dp"
 
         android:src="@drawable/image" />
 
     <TextView
+        android:layout_below="@id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/city"
+        android:text="30"
+        android:textSize="50dp"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="5dp"
+        android:id="@+id/tempavg"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tempavg"
         android:textAllCaps="true"
         android:text="Description"
-        android:textColor="#212121"
+        android:textColor="#795548"
         android:textStyle="bold"
         android:textSize="25dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="5dp"
         android:id="@+id/description"
         />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:text="Temprature"
-            android:textStyle="bold"
-            android:textColor="#795548"
-            android:textAllCaps="true"
-            android:layout_marginLeft="100dp"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="100 "
-            android:textColor="#D7CCC8"
-            android:textSize="20dp"
-            android:layout_marginLeft="20dp"
-
-            android:id="@+id/temp"/>
-        </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="7dp"
+        android:layout_below="@id/description"
+        android:id="@+id/row2">
 
         <TextView
             android:layout_width="wrap_content"
@@ -112,13 +105,15 @@
             android:text="100 "
             android:layout_marginLeft="50dp"
             android:textSize="20dp"
-            android:textColor="#D7CCC8"
+
+            android:textStyle="bold"
             android:id="@+id/humidity"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp">
+        android:layout_marginTop="7dp"
+        android:layout_below="@id/row2">
 
         <TextView
             android:layout_width="wrap_content"
@@ -133,14 +128,14 @@
 
         <TextView
             android:layout_width="wrap_content"
+            android:textStyle="bold"
             android:layout_height="wrap_content"
             android:text="City"
             android:textSize="20dp"
-            android:textColor="#D7CCC8"
+
             android:layout_marginLeft="80dp"
             android:id="@+id/place"/>
     </LinearLayout>
 
-</LinearLayout>
 
-</android.support.v4.widget.SwipeRefreshLayout>
+</RelativeLayout>

@@ -18,13 +18,19 @@ public class Weather {
 
     private String micon;
 
-    public  Weather (String description , int temp , int Humidity , String name , String icon )
+    private int mtemp_min;
+
+    private int mtemp_max;
+
+    public  Weather (String description , int temp , int Humidity , String name , String icon  ,int temp_min , int temp_max )
     {
         mdescription = description ;
         mtemp = temp ;
         mHumidity = Humidity;
      mname= name ;
         micon =icon;
+        mtemp_max=temp_max;
+        mtemp_min=temp_min;
     }
 
     public  String getDescription()
@@ -54,6 +60,20 @@ public class Weather {
     public String getname()
     {return  mname;}
 
+
+    public  String getTemp_min()
+    {
+        String temp =String.valueOf(mtemp_min) ;
+        return temp;
+
+    }
+
+    public  String getTemp_max()
+    {
+        String temp =String.valueOf(mtemp_max) ;
+        return temp;
+
+    }
 
 
 

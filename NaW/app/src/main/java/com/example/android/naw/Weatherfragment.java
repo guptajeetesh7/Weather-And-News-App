@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
@@ -25,6 +25,7 @@ public class Weatherfragment extends Fragment  {
     Button button;
     View rootview;
     EditText getcity;
+    ProgressBar bar;
 
     public Weatherfragment() {
         // Required empty public constructor
@@ -40,7 +41,7 @@ public class Weatherfragment extends Fragment  {
 
        getcity =(EditText)  rootview.findViewById(R.id.cityname);
 
-
+         bar = (ProgressBar) rootview.findViewById(R.id.bar);
 
 
         String WeatherApi = "http://api.openweathermap.org/data/2.5/weather?q=kota&appid=c242d2031036ff05b3bd8559f91e2449";
@@ -54,9 +55,11 @@ public class Weatherfragment extends Fragment  {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 
               city= getcity.getText().toString();
 
+                bar.setVisibility(View.VISIBLE);
                 String WeatherAp = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=c242d2031036ff05b3bd8559f91e2449";
 
                 WeatherTask  task = new WeatherTask(getActivity());
@@ -69,9 +72,6 @@ public class Weatherfragment extends Fragment  {
 
 
 
-
-
-        SwipeRefreshLayout mySwipeRefreshLayout = (SwipeRefreshLayout) rootview.findViewById(R.id.swipe);
 
 
         /*
@@ -112,7 +112,7 @@ public class Weatherfragment extends Fragment  {
 
 
     protected void onPostExecute(Weather weather) {
-
+        bar.setVisibility(View.GONE);
        update(weather);
     }
 
@@ -130,7 +130,7 @@ public class Weatherfragment extends Fragment  {
 
         Log.v("SUCESSSSSSSSSSSSFULLLLLLLLLLLLLLL" ,"GET THE DEScr");
 
-        TextView temp= (TextView) rootview.findViewById(R.id.temp);
+        TextView temp= (TextView) rootview.findViewById(R.id.tempavg);
         temp.setText(weather.getTemp());
 
         TextView humidity = (TextView) rootview.findViewById(R.id.humidity);
@@ -141,6 +141,10 @@ public class Weatherfragment extends Fragment  {
 
         ImageView imageView =(ImageView)  rootview.findViewById(R.id.imageView);
         imageView.setImageResource(id);
+
+
+
+
     }
 
     public int getIcon(String icon) {
