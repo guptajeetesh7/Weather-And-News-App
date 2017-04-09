@@ -196,11 +196,11 @@ public class Weatherfragment extends Fragment  {
 
         if (icon.equals("11n"))
         {
-            return R.drawable.n11;
+            return R.drawable.t11;
         }
         if (icon.equals("11d"))
         {
-            return R.drawable.d11;
+            return R.drawable.t11;
         }
         if (icon.equals("10d"))
         {
